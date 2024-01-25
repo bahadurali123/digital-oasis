@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form{
+    width: 40vw;
+    height: 70vh;
+    /* border: 1px solid red; */
+    border-radius: 15px;
+    box-shadow: 3px 3px 15px 3px #dfdede;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#itemsection{
+    width: 90%;
+    padding: 2vw;
+    margin-bottom: 5vh;
+    /* border: 1px solid black; */
+}
+.h3{
+    margin: 5vh 0vh;
+}
+.error{
+    color: red;
+}
+.items{
+    margin: 2vh 0vh;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+}
+.inputs{
+    padding: 5px;
+    background-color: #dfdede;
+    border: none;
+}
+.radio{
+    cursor: pointer;
+}
+.subbtn{
+    width: 75px;
+    height: 25px;
+    padding: 2px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.subbtn:hover{
+    background-color: red;
+    cursor: pointer;
+}
+#loginmessage{
+ padding: 2vw;   
+}
+@media (max-width: 900px) {
+    .form{
+        width: 60vw;
+    }
+}
+@media (max-width: 600px) {
+    .form{
+        width: 80vw;
+    }
+}

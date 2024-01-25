@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="/public/css/style.css">
+<nav>
+    <ul>
+        <li><a href="../">Home</a></li>
+        <li><a href="../services">Services</a></li>
+        <li><a href="../blog?page=1">Blog</a></li>
+        <!-- <li><a href="../blog">Blog</a></li> -->
+        <li><a href="../contact">Contact</a></li>
+        <% if( user ===  undefined ){ %>
+            <li><a href="../userlogin">Login</a></li>
+        <% }else{ %>
+            <li><a href="/userlogout">Logout</a></li>
+            <li><img id="user" src="<%= user.image %>" alt="user"></li>
+        <% } %>
+    </ul>
+</nav>
