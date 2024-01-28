@@ -74,6 +74,9 @@ app.use(cookieparser());
 
 // This is the static path of this website
 const staticpath = path.join(__dirname, "../fulweb1");
+// console.log("Path", path.join(__dirname, "../fulweb1"))
+// console.log("Path2", path.join(__dirname, "/public"))
+// const staticpath = path.join(__dirname, "/public");
 app.use(express.static(staticpath));
 
 // Template Engine
