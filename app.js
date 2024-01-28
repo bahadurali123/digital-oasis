@@ -35,7 +35,7 @@ const paginateMiddleware = async (req, res, next) => {
   try {
       const pageno = req.query.page || 1;
       console.log("pageno", pageno);
-      const limit = 2;
+      const limit = 8;
       const skipblog = (pageno - 1) * limit;
       console.log("skip blogs: ", skipblog);
 

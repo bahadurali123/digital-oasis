@@ -36,21 +36,25 @@
     margin: 0 2vh;
 }
 .blogimg{
-    /* width: 100%; */
-    height: 25vh;
+    width: 20vw;
+    height: 20vh;
+}
+.blogtitle{
+    font-size: 1.2em;
 }
 .blogspacifications{
+    height: 5vh;
     display: flex;
-    justify-content: left;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 4px;
 }
 .blogdata{
     margin: 0 3vh;
 }
 .blogmorereed{
-    width: 225px;
-    height: 85px;
-    /* margin-top: 15px; */
-    padding: 10px;
+    padding: 7px 10px;
     border-radius: 10px;
     text-decoration: none;
     color: black;
@@ -279,7 +283,6 @@ cursor: pointer;
     #blogs{
         width: 93%;
         padding: 3vh;
-        background-color: #cc7e7e;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
@@ -289,7 +292,6 @@ cursor: pointer;
         padding: 2vh;
         margin: 2vh;
         flex-direction: column;
-        background-color: #4c2dec;
         box-shadow: 0px 0px 10px 5px #e4e2e2;
         border-radius: 20px;
     }
@@ -301,20 +303,25 @@ cursor: pointer;
     .blogimg{
         width: 22vw;
         height: 15vh;
+        border-radius: 10px;
     }
     .blogtitle{
-        font-size: medium;
+        font-size: 1.2em;
     }
     .blogdiscription{
         font-size: 14px;
         text-align: justify;
     }
     .blogspacifications{
+        height: 10vh;
         justify-content: center;
         font-size: 12px;
     }
     .blogredmor{
         margin-top: 20px;
+    }
+    .blogmorereed{
+        margin-top: 10px;
     }
 }
 @media (max-width: 720px) {
@@ -325,6 +332,9 @@ cursor: pointer;
         width: 100%;
         grid-template-columns: 1fr;
     }
+    .blogimg{
+        width: 85%;
+    }
     #blogsidebar{
         grid-row-start: 1;
         grid-row-end: 2;
@@ -332,9 +342,11 @@ cursor: pointer;
     #blogs{
         width: 97vw;
         padding: 2vh 0vw;
-        background-color: #cc7e7e;
         display: flex;
         flex-wrap: wrap;
+    }
+    .blog{
+        width: 38vw;
     }
     .nav .dropdown {
         width: 85%;
