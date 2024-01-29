@@ -14,7 +14,7 @@ const visturecount = async (req, res, next)=>{
             );
             req.pageStats = stat;
           } catch (error) {
-            console.error("Pagination Middleware Error:", error);
+            console.error("Path error:", error);
             // return res.status(500).send(error.message);
           }
         }
