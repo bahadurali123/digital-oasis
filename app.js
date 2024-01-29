@@ -1,35 +1,34 @@
-// require("dotenv").config();
+require("dotenv").config();
 const path = require("path");
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 6565;
 const routs = require("./src/routs/userrouts");
 const adminrout = require("./src/routs/adminrout");
-// const { authanticate, userauth, isAuthenticated } = require("./src/middleware/userauthanticate");
 const { authanticate, userauth, flexebelauth } = require("./src/middleware/userauthanticate");
 const Stat = require("./src/moduls/webstatus");
 const uploadfile = require("./src/middleware/multer");
 
 
-// // Middleware for counting page views
-// app.use(async (req, res, next) => {
-//   const allowedRoutes = ['/', '/blog/blogcategory', '/blog', '/services', '/contact', '/showblog']; // Add the routes you want to track
-//   // Check if the current route is in the allowed routes
-//   if (allowedRoutes.includes(req.path)) {
-//     try {
-//     const page = req.originalUrl;
-//       const stat = await Stat.findOneAndUpdate(
-//         { page },
-//         { $inc: { visitors: 1 } },
-//         { upsert: true, new: true }
-//       );
-//       req.pageStats = stat;
-//     } catch (error) {
-//       return res.status(500).send(error.message);
-//     }
-//   }
-//   next();
-// });
+// Middleware for counting page views
+app.use(async (req, res, next) => {
+  const allowedRoutes = ['/', '/blog/blogcategory', '/blog', '/services', '/contact', '/showblog']; // Add the routes you want to track
+  // Check if the current route is in the allowed routes
+  if (allowedRoutes.includes(req.path)) {
+    try {
+    const page = req.originalUrl;
+      const stat = await Stat.findOneAndUpdate(
+        { page },
+        { $inc: { visitors: 1 } },
+        { upsert: true, new: true }
+      );
+      req.pageStats = stat;
+    } catch (error) {
+      return res.status(500).send(error.message);
+    }
+  }
+  next();
+});
 // pagination Middleware
 const paginateMiddleware = async (req, res, next) => {
   try {
@@ -62,20 +61,9 @@ const cookieparser = require("cookie-parser");
 const blogdata = require("./src/moduls/blogschema");
 app.use(cookieparser());
 
-// // Models
-// app.use(session({
-//   secret: 'your-secret-key',
-//   resave: false,
-//   saveUninitialized: true,
-// }));
-
-// app.use(isAuthenticated);
 
 
 // This is the static path of this website
-// const staticpath = path.join(__dirname, "../fulweb1");
-// console.log("Path", path.join(__dirname, "../fulweb1"))
-// console.log("Path2", path.join(__dirname, "/public"));
 const staticpath = path.join(__dirname, "/public");
 app.use(express.static(staticpath));
 
@@ -105,10 +93,6 @@ app.post("/userlogin", routs); // test true row JSON
 app.get("/userlogout", userauth, routs); // test true
 
 // for admin pannel
-// post=creat
-// get=read 
-// put=update 
-// delete=delete
 
 app.get("/register", routs, adminrout); // ok
 app.post("/register", routs, adminrout); // test true row JSON
@@ -140,13 +124,13 @@ app.get("/admin/blog/delete/:id", authanticate, adminrout); // ok
 app.get("/admin/blog/edit/:id", authanticate, adminrout); // ok
 app.post("/admin/blog/edit/:id", authanticate, adminrout); // test true row JSON
 
-app.get("/admin/address", authanticate, adminrout); // ik
+app.get("/admin/address", authanticate, adminrout); // ok
 app.post("/admin/address", authanticate, adminrout); // test true row JSON
 
-app.get("/admin/comments", authanticate, adminrout);
-app.get("/admin/users", authanticate, adminrout);
-app.get("/admin/messages", authanticate, adminrout);
-app.get("/admin/likes", authanticate, adminrout);
+app.get("/admin/comments", authanticate, adminrout); // ok
+app.get("/admin/users", authanticate, adminrout); // ok
+app.get("/admin/messages", authanticate, adminrout); // ok
+app.get("/admin/likes", authanticate, adminrout); // ok
 
 app.listen(port, () => {
   console.log(`Server listen at port: ${port}`);

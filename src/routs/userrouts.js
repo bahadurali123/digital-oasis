@@ -1,4 +1,4 @@
-require("dotenv").config();
+// require("dotenv").config();
 const express = require("express");
 const bcrypt = require("bcrypt");
 const routs = express.Router();
@@ -28,7 +28,6 @@ const user = require("../moduls/userschema");
 const like = require("../moduls/likeschema");
 const addresdata = require("../moduls/addresschema");
 const uploadoncloudinary = require("../utilitys/cloudinary");
-// const { teamdata, socialdata, contactdata, blogdata, messagedata } = require("../moduls/usermodels");
 
 
 routs.get("/", async (req, res) => {
@@ -220,7 +219,6 @@ routs.post('/blog/:postId/comments', async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 });
-
 routs.get("/contact", async (req, res) => {
     const authuser = req.user;
     const social = await socialdata.find();

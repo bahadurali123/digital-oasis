@@ -1,7 +1,6 @@
 const express = require("express");
 const adminrouts = express.Router()
 
-// const authanticate = require("../../src/middleware/userauthanticate");
 
 const admin = require("../moduls/adminschema");
 // const e = require("express");
@@ -453,8 +452,12 @@ adminrouts.post("/admin/address", async (req, res) => {
     try {
         const { addresimage, addresurl, address } = req.body;
         console.log(`${addresimage}, ${addresurl}, ${address}`);
-        // const addres = await new addresdata({
-        // });
+        // const save = await new addresdata({
+        //             addresimage,
+        //             addresurl,
+        //             address
+        // })
+        // const saveaddres= await save.save();
         const saveaddres = await addresdata.findOneAndUpdate({ _id: "658fde04118187aef1daab74" }, {
             $set: {
                 addresimage,
