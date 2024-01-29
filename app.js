@@ -8,50 +8,12 @@ const adminrout = require("./src/routs/adminrout");
 const { authanticate, userauth, flexebelauth } = require("./src/middleware/userauthanticate");
 const Stat = require("./src/moduls/webstatus");
 const uploadfile = require("./src/middleware/multer");
+const visturecount = require("./src/middleware/status")
+const paginateMiddleware = require("./src/middleware/pagination")
 
 
 // Middleware for counting page views
-app.use(async (req, res, next) => {
-  const allowedRoutes = ['/', '/blog/blogcategory', '/blog', '/services', '/contact', '/showblog']; // Add the routes you want to track
-  // Check if the current route is in the allowed routes
-  if (allowedRoutes.includes(req.path)) {
-    try {
-    const page = req.originalUrl;
-      const stat = await Stat.findOneAndUpdate(
-        { page },
-        { $inc: { visitors: 1 } },
-        { upsert: true, new: true }
-      );
-      req.pageStats = stat;
-    } catch (error) {
-      return res.status(500).send(error.message);
-    }
-  }
-  next();
-});
-// pagination Middleware
-const paginateMiddleware = async (req, res, next) => {
-  try {
-      const pageno = req.query.page || 1;
-      console.log("pageno", pageno);
-      const limit = 8;
-      const skipblog = (pageno - 1) * limit;
-      console.log("skip blogs: ", skipblog);
-
-      // Adding pagination data to request object
-      req.paginationData = {
-          pageno,
-          limit,
-          skipblog,
-          // totalpages,
-      };
-
-      next();
-  } catch (error) {
-      console.error("Pagination Middleware Error:", error);
-      res.status(500).send("Internal Server Error");
-  }
-};
+app.use(visturecount);
 
 const ejs = require("ejs");
 const { updateMany } = require("./src/moduls/teamdata");
