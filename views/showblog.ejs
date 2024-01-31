@@ -56,15 +56,10 @@
                     <h2 class="commentshed"><span>
                             <%= comments.length %>
                         </span>&nbsp;Comments</h2>
-                    <!-- <h3>Add a Comment</h3> -->
                     <form class="commentform" action="/blog/<%= showblog._id %>/comments" method="POST">
-                        <!-- <label for="name">Name:</label> -->
-                        <!-- <input class="inputs" type="text" name="name" autocomplete="off" required><br> -->
-                        <!-- <label for="content">Comment:</label> -->
                         <textarea class="inputs" name="content" placeholder="Add a Comment" rows="4"
                             required></textarea><br>
                         <div class="btnsection">
-                            <!-- <button type="reset" class="subbtn">Cancel</button> -->
                             <button type="submit" class="subbtn">Comment</button>
                         </div>
                     </form>

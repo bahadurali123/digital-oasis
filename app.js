@@ -6,14 +6,14 @@ const port = process.env.PORT || 6565;
 const routs = require("./src/routs/userrouts");
 const adminrout = require("./src/routs/adminrout");
 const { authanticate, userauth, flexebelauth } = require("./src/middleware/userauthanticate");
-const Stat = require("./src/moduls/webstatus");
 const uploadfile = require("./src/middleware/multer");
 const visturecount = require("./src/middleware/status")
-const paginateMiddleware = require("./src/middleware/pagination")
+const paginateMiddleware = require("./src/middleware/pagination");
 
 
-// Middleware for counting page views
+// // Middleware for counting page views
 app.use(visturecount);
+
 
 const ejs = require("ejs");
 const { updateMany } = require("./src/moduls/teamdata");

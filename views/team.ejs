@@ -14,9 +14,6 @@
     <%- include('./admin/partials/header.ejs')-%>
         <div class="contaner">
             <div class="teamlist">
-                <!-- <div class="socialitems">
-                    <a class="btn add" href=""><i class="bi bi-plus"></i></a>
-                </div> -->
                 <h2>Our Team</h2>
                 <div class="teamitems">
                     <div class="icon">Images</div>
@@ -29,7 +26,6 @@
                 <% data.forEach(items=>{ %>
                     <div class="teamitems">
                         <img class="teamimage" src="<%= items.teamimage %>" alt="image">
-                        <!-- <div class="icon"><%- items.socialimage %></div> -->
                         <div><%= items.teamname %></div>
                         <div>
                             <a class="btn" href="/admin/team/delete/<%= items.id %>"><i class="bi bi-trash"></i></a>
