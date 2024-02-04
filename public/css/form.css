@@ -1,3 +1,8 @@
+:root{
+    --green-collor: #00ff51;
+    --red-collor: #fc0303;
+    --yello-collor: #ffff00;
+}
 *{
     margin: 0;
     padding: 0;
@@ -11,13 +16,11 @@ body{
 }
 .form{
     width: 40vw;
-    height: 70vh;
-    /* border: 1px solid red; */
+    height: auto;
     border-radius: 15px;
     box-shadow: 3px 3px 15px 3px #dfdede;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
 }
 form{
@@ -28,12 +31,11 @@ form{
 }
 #itemsection{
     width: 90%;
-    padding: 2vw;
-    margin-bottom: 5vh;
-    /* border: 1px solid black; */
+    margin-bottom: 2vh;
 }
 .h3{
-    margin: 5vh 0vh;
+    margin: 5vh 0vh 3vh;
+    color: var(--green-collor);
 }
 .error{
     color: red;
@@ -56,11 +58,14 @@ form{
     width: 75px;
     height: 25px;
     padding: 2px;
+    margin-bottom: 5vh;
     border: 1px solid black;
     border-radius: 5px;
 }
 .subbtn:hover{
-    background-color: red;
+    background-color: var(--green-collor);
+    color: var(--yello-collor);
+    border: 1px solid var(--yello-collor);
     cursor: pointer;
 }
 #loginmessage{

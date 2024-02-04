@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="/css/blog.css">
     <title>Showblog</title>
@@ -33,14 +33,17 @@
                         </p>
                         <!-- <a href="/showblog/<%= showblog.blogtitle %>/like" aria-checked="true"><button name="true" id="like">Like</button></a> -->
                         <form action="/showblog/<%= showblog.blogtitle %>/like" method="post">
-                            <button class="likebtn" type="submit" name="likedislike" value="like">
-                                <i class="bi bi-heart"></i>&nbsp;<span><%= likes.length %></span>
-                                <!-- <input type="radio" name="situation" value="true" id=""> -->
-                            </button>
-                            <!-- <button type="submit" name="likedislike" value="Dislike">
-                                <i name="situation" value="false" class="bi bi-hand-thumbs-down"></i>&nbsp;<span></span>
-                                <input type="radio" name="situation" value="false" id="">
-                            </button> -->
+                            <% if(likesituation){ %>
+                                <button class="likebtn likesituation<%= likesituation %>" type="submit" name="likedislike" value="like">
+                                    <i class="bi bi-heart"></i>&nbsp;<span><%= likes.length %></span>
+                                    <!-- <input type="radio" name="situation" value="true" id=""> -->
+                                </button>
+                                <% }else{%>
+                                    <button class="likebtn " type="submit" name="likedislike" value="like">
+                                        <i class="bi bi-heart"></i>&nbsp;<span><%= likes.length %></span>
+                                        <!-- <input type="radio" name="situation" value="true" id=""> -->
+                                    </button>
+                                    <% } %>
                         </form>
                     </div>
                     <img id="showblogimg" src="<%= showblog.blogimage %>" alt="">

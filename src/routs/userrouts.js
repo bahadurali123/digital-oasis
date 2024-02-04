@@ -5,18 +5,6 @@ const routs = express.Router();
 
 
 
-//   // Function to get statistics for a specific page
-//   const getPageStats = async (req, res, next) => {
-//     const page = req.originalUrl;
-//     try {
-//       const stat = await Stat.findOne({ page });
-//       req.pageStats = stat;
-//       next();
-//     } catch (error) {
-//       res.status(500).send(error.message);
-//     }
-//   };
-
 // Models
 const teamdata = require("../moduls/teamdata");
 const socialdata = require("../moduls/socialschema");
@@ -150,6 +138,8 @@ routs.get("/blog/:blogcategory", async (req, res) => {
     }
 });
 routs.get("/showblog/:blogtitle", async (req, res) => {
+    let likesituation="";
+    let likestatus;
     const authuser = req.user;
     const id = req.params.blogtitle
     console.log("blog title is:", id)
@@ -159,12 +149,19 @@ routs.get("/showblog/:blogtitle", async (req, res) => {
     const blogid = showblog._id;
     const comments = await Comment.find({ postId: blogid }).sort({ createdAt: 'desc' });
     const likes = await like.find({ $and: [{ likes: true }, { postId: blogid }] });
+    if(authuser){
+        likestatus = await like.findOne({ $and: [{ postId:blogid }, { userId:authuser._id }] });
+    };
+    if (!((likestatus === null) || (likestatus === undefined))) {
+        likesituation = likestatus.likes;
+    };
+    console.log("like: ", likesituation)
     if (req.user) {
         console.log("user is this in blogtitle: ", authuser.name)
-        res.render("showblog", { socialdatas: social, contact, showblog, comments, likes, authuser });
+        res.render("showblog", { socialdatas: social, contact, showblog, comments, likes, authuser, likesituation });
     } else {
-        res.render("showblog", { socialdatas: social, contact, showblog, comments, likes, authuser });
-    }
+        res.render("showblog", { socialdatas: social, contact, showblog, comments, likes, authuser, likesituation });
+    };
 });
 routs.post("/showblog/:blogtitle/:like", async (req, res) => {
     const title = req.params.blogtitle;
@@ -267,20 +264,21 @@ routs.get('/userregister', async (req, res) => {
 });
 routs.post('/userregister', async (req, res) => {
     try {
-        const { name, email, password } = req.body;
+        const { name, email, password, image } = req.body;
         let isError = false; // Variable to track errors
-        const userlocalpath = req.file.path;
-        console.log("Path:", userlocalpath)
+        // const userlocalpath = req.file.path; It works but my deployment environment doesn't support cyclic.sh. It  uses paid the AWS S3 file system.
+        // console.log("Path:", userlocalpath)
+        console.log("Path:", image);
         // .....File validation.....
-        if (!userlocalpath) {
-            console.log("File is in correct:");
+        if (!image) {
+            console.log("File is incorrect:");
             isError = true;
         }
-        const image = await uploadoncloudinary(userlocalpath);
+        // const image = await uploadoncloudinary(userlocalpath); It works but my deployment environment doesn't support cyclic.sh. It  uses paid the AWS S3 file system.
         
         // .....First Namd validation.....
         if ((name == "" || (!isNaN(name))) || (name.length > 20 || name.length < 4)) {
-            console.log("Name is in correct:", name);
+            console.log("Name is incorrect:", name);
             isError = true;
         }
 
@@ -315,7 +313,7 @@ routs.post('/userregister', async (req, res) => {
                 name: name,
                 email: email,
                 password: password,
-                image: image.url
+                image: image
             });
             const token = userdata.userauthanticat();
             // const savauser = await userdata.save();
@@ -361,7 +359,7 @@ routs.post('/userlogin', async (req, res) => {
             res.cookie("digital_oasis", token, {
                 expires: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000),
                 httpOnly: true,
-                // secure: true
+                secure: true
             });
             res.redirect("/");
         } else {

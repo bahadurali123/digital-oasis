@@ -1,3 +1,6 @@
+:root{
+    --green-collor: #00ff51;
+}
 /* footer */
 footer{
     width: 100%;
@@ -24,7 +27,7 @@ footer{
     margin: 3px;
 }
 #qlinkslist a:hover{
-    color: red;
+    color: var(--green-collor);
 }
 #logo{
     /* background-color: #e62e2e; */
@@ -35,6 +38,9 @@ footer{
 .footerupersections img{
     /* width: 15vw; */
     width: 80%;
+}
+.topicheadings{
+    color: var(--green-collor);
 }
 #contact{
     margin: 5vh 0;
@@ -51,7 +57,7 @@ footer{
     margin: 0 2vh;
 }
 #contact div .bi:hover, #contact div a:hover{
-    color: red;
+    color: var(--green-collor);
 }
 .contactitems{
     display: flex;
@@ -69,9 +75,9 @@ footer{
     color: black;
 }
 #social a:hover{
-    color: red;
+    color: var(--green-collor);
     border-radius: 50px;
-    border: 1px solid red;
+    border: 1px solid var(--green-collor);
 }
 @media (max-width: 725px) {
     #footerupersection{

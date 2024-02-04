@@ -1,3 +1,8 @@
+:root{
+    --green-collor: #00ff51;
+    --red-collor: #fc0303;
+    --yello-collor: #ffff00;
+}
 *{
     margin: 0;
     padding: 0;
@@ -22,10 +27,12 @@
 }
 #messhadding{
     margin: 2vh;
+    color: var(--green-collor);
 }
 .subheding{
     margin: 2vh 0;
     font-weight: 600;
+    color: var(--green-collor);
 }
 #form{
     width: 80%;
@@ -49,7 +56,8 @@
 }
 .btn:hover{
     border: none;
-    background-color: red;
+    background-color: var(--green-collor);
+    color: var(--yello-collor);
     font-size: 20px;
 }
 .contactitems{

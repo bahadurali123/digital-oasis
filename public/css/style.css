@@ -1,9 +1,13 @@
+:root{
+    --green-collor: #00ff51;
+    --red-collor: #fc0303;
+}
 *{
     margin: 0;
     padding: 0;
 }
 h1{
-    color: red;
+    color: var(--green-collor);
 }
 /* Header */
 nav{
@@ -31,7 +35,7 @@ nav ul li{
 nav ul li span{
     height: 40px;
     height: 40px;
-    border: 1px solid red;
+    border: 1px solid var(--green-collor);
     border-radius: 50px;
 }
 nav ul li a{
@@ -41,8 +45,8 @@ nav ul li a{
     cursor: pointer;
 }
 nav ul li a:hover{
-    color: red;
-    border-bottom: 1px solid red;
+    color: var(--green-collor);
+    border-bottom: 1px solid var(--green-collor);
 }
 #user{
     width: 40px;
@@ -73,7 +77,7 @@ body{
 }
 #heading{
     position: relative;
-    color: red;
+    color: var(--red-collor);
     font-size: 3rem;
 }
 hr{
@@ -103,6 +107,7 @@ hr{
     padding: 1em 4em;
 }
 #hi{
+    color: var(--green-collor);
     font-size: 4rem;
 }
 .Introduction{

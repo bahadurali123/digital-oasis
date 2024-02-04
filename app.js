@@ -6,7 +6,7 @@ const port = process.env.PORT || 6565;
 const routs = require("./src/routs/userrouts");
 const adminrout = require("./src/routs/adminrout");
 const { authanticate, userauth, flexebelauth } = require("./src/middleware/userauthanticate");
-const uploadfile = require("./src/middleware/multer");
+// const uploadfile = require("./src/middleware/multer"); It works but my deployment environment doesn't support cyclic. It  uses paid the AWS S3 file system.
 const visturecount = require("./src/middleware/status")
 const paginateMiddleware = require("./src/middleware/pagination");
 
@@ -50,7 +50,8 @@ app.post("/blog/:postId/comments", userauth, routs); // test true row JSON
 app.get("/contact", flexebelauth, routs); // ok
 app.post("/contact", userauth, routs); // test true row JSON
 app.get("/userregister", routs); // test true
-app.post("/userregister", uploadfile.single("image"), routs); // test true form-data
+// app.post("/userregister", uploadfile.single("image"), routs); It works but my deployment environment doesn't support cyclic.sh. It  uses paid the AWS S3 file system. // test true form-data
+app.post("/userregister", routs); // test true form-data
 app.get("/userlogin", routs); // ok
 app.post("/userlogin", routs); // test true row JSON
 app.get("/userlogout", userauth, routs); // test true

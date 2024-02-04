@@ -159,7 +159,7 @@ adminrouts.get("/logout", async (req, res) => {
 
         res.clearCookie("digitaloasis");
         await req.user.save();
-        res.send("This is LogOut Page");
+        res.send("You are successfully logout!");
     } catch (error) {
         res.status(404).send(error);
     }

@@ -1,3 +1,9 @@
+:root{
+    --green-collor: #00ff51;
+    --red-collor: #fc0303;
+    --yello-collor: #ffff00;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -61,7 +67,7 @@
     box-shadow: 3px 3px 10px 3px rgb(190, 183, 183);
 }
 .blogmorereed:hover{
-    color: red;
+    color: var(--green-collor);
 }
 .blogredmor{
     margin: 15px 0;
@@ -87,7 +93,7 @@
     border: 1px solid black;
 }
 #searchicon:hover{
-    border: 1px solid red;
+    border: 1px solid var(--green-collor);
 }
 #searchicon a{
     width: 100%;
@@ -101,7 +107,7 @@
     height: 100%;
 }
 #searchicon a:hover{
-    color: red;
+    color: var(--green-collor);
     font-size: 18px;
 }
 /* ...............categeroys............... */
@@ -148,14 +154,14 @@
     text-transform: capitalize;
 }
 .logo-class:hover {
-    background-color: red;
+    background-color: var(--green-collor);
 }
 .nav a:hover {
-    background-color: red;
+    background-color: var(--green-collor);
 }
 .nav ul ul li {
     width: 100%;
-    border-top: 0.5px solid red;
+    border-top: 0.5px solid var(--green-collor);
 }
 .nav .dropdown {
     display: none;
@@ -199,7 +205,7 @@
 }
 .comments{
     padding: 20px;
-    /* border: 1px solid red; */
+    /* border: 1px solid var(--green-collor); */
 }
 .commentshed{
     margin: 10px 0px;
@@ -230,12 +236,17 @@
     border-radius: 5px;
 }
 .subbtn:hover{
-    background-color: red;
+    background-color: var(--green-collor);
+    color: var(--yello-collor);
+    border: 1px solid var(--yello-collor);
     cursor: pointer;
 }
 .likebtn{
     border: none;
     background-color: none;
+}
+.likesituationtrue{
+    color: var(--green-collor);
 }
 .btnsection{
     display: flex;
@@ -276,7 +287,7 @@
     background-color: #eae9e9;
 }
 .pagination-btn a:hover{
-color: red;
+color: var(--green-collor);
 cursor: pointer;
 }
 @media (max-width: 850px) {
