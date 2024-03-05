@@ -1,3 +1,7 @@
+body{
+    display: flex;
+    align-items: center;
+}
 .contaner{
     width: 100%;
     display: flex;
@@ -16,6 +20,18 @@
     border-bottom: 1px solid black;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+.blogitems .teamimage, .blogitems .dates{
+    width: 25%;
+}
+.blogitems .titles{
+    width: 30%;
+}
+.blogitems .icons{
+    width: 20%;
+    display: flex;
+    justify-content: space-evenly;
     align-items: center;
 }
 .socialform, .teamform, .contactform, .blogform{
@@ -78,7 +94,7 @@
 .address-container{
     width: 95%;
     padding: 10px;
-    border-bottom: 1px solid black;   
+    /* border-bottom: 1px solid black;    */
 }
 .addressitems{
     width: 90%;
@@ -112,5 +128,19 @@
     .sociallist, .teamlist, .contactlist, .bloglist{
         font-size: 12px;
     }
-    
+    .blogitems .titles{
+        padding-left: 3px;
+    }
+    .teamitems .titles{
+        width: 40%;
+        padding-left: 3px;
+    }
+    .teamimage{
+        width: 75px;
+        height: 40px;
+    }
+    .btn{
+        padding: 0px;
+        margin: 3px;
+    }
 }

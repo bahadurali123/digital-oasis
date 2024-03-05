@@ -79,6 +79,9 @@ footer{
     border-radius: 50px;
     border: 1px solid var(--green-collor);
 }
+#rights{
+    font-size: 20px;
+}
 @media (max-width: 725px) {
     #footerupersection{
     /* background-color: aqua; */
@@ -92,6 +95,9 @@ footer{
         align-self: center;
         justify-self: center;
         /* background-color: #ed9292; */
+    }
+    #rights{
+        font-size: 15px;
     }
 }
 @media (max-width: 650px) {
@@ -111,6 +117,7 @@ footer{
 }
 @media (max-width: 550px) {
     #footerupersection{
+        /* background-color: #d51010; */
         grid-template-columns: repeat(1, 1fr);
         place-items: center;
     }
@@ -118,6 +125,6 @@ footer{
         grid-column-end: 2;
     }
     #rights{
-        font-size: 13px;
+        font-size: 10px;
     }
 }

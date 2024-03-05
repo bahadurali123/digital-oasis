@@ -29,9 +29,9 @@
                 <% blog.forEach(items=>{ %>
                     <div class="blogitems blogs">
                         <img class="teamimage" src="<%= items.blogimage %>" alt="image">
-                        <div><%= items.blogtitle.substring(0, 20).concat('...') %></div>
-                        <div><%= items.blogcreatedAt.toLocaleDateString() %></div>
-                        <div>
+                        <div class="titles"><%= items.blogtitle.substring(0, 20).concat('...') %></div>
+                        <div class="dates"><%= items.blogcreatedAt.toLocaleDateString() %></div>
+                        <div class="icons">
                             <a class="btn" href="/admin/blog/delete/<%= items.id %>"><i class="bi bi-trash"></i></a>
                             <a class="btn" href="/admin/blog/edit/<%= items.id %>"><i
                                     class="bi bi-pencil-square"></i></a>
@@ -60,5 +60,5 @@
             </form>
         </div>
 </body>
-
+<script src="/script/adminheader.js"></script>
 </html>

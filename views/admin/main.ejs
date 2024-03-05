@@ -49,18 +49,18 @@
                     <tr>
                         <th>image</th>
                         <th>title</th>
-                        <th>likes</th>
-                        <th>comments</th>
+                        <th><i class="bi bi-heart-fill"></i></th>
+                        <th><i class="bi bi-chat"></th>
                     </tr>
                     <% blogs.forEach(blog=>{ %>
                         <tr>
-                            <td><img class="blogimages" src="<%= blog.blogimage %>" alt="image"></td>
-                            <td><%= blog.blogtitle.substring(0, 30).concat('...') %></td>
+                            <td class="blog-img"><img class="blogimages" src="<%= blog.blogimage %>" alt="image"></td>
+                            <td class="blog-titles"><%= blog.blogtitle.substring(0, 30).concat('...') %></td>
                             <!-- <td><%= blog._id %></td> -->
                             <% const blogLikes = likes.filter(like => like.postId.equals(blog._id)); %>
-                            <td><%= blogLikes.length %></td>
+                            <td class="icons"><%= blogLikes.length %></td>
                             <% const blogComments = comments.filter(comment => comment.postId.equals(blog._id)); %>
-                            <td><%= blogComments.length %></td>
+                            <td class="icons"><%= blogComments.length %></td>
                         </tr>
                         <% }); %>
                 </table>
@@ -90,4 +90,5 @@
         </div>
     </div>
 </body>
+<script src="/script/adminheader.js"></script>
 </html>

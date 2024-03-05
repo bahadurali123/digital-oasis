@@ -26,7 +26,7 @@
                 <% data.forEach(items=>{ %>
                     <div class="teamitems">
                         <img class="teamimage" src="<%= items.teamimage %>" alt="image">
-                        <div><%= items.teamname %></div>
+                        <div class="titles"><%= items.teamname %></div>
                         <div>
                             <a class="btn" href="/admin/team/delete/<%= items.id %>"><i class="bi bi-trash"></i></a>
                             <a class="btn" href="/admin/team/edit/<%= items.id %>"><i class="bi bi-pencil-square"></i></a>
@@ -47,5 +47,5 @@
             </form>
         </div>
 </body>
-
+<script src="/script/adminheader.js"></script>
 </html>

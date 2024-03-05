@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/clintsideheader.css">
     <link rel="stylesheet" href="/css/contact.css">
     <title>Contact</title>
 </head>
 <body>
     <%- include('partials/nav.ejs', {user:authuser})-%>
-    <p>welcome to contact form</p>
+    <p id="contact-welcome">welcome to contact section</p>
     <div id="contactpage">
         <div id="contactcontaner">
             <div class="contactsubcontaner messagecontaner">
@@ -49,9 +50,10 @@
             </div>
         </div>
         <div id="mapcontaner">
-            <a id="map" href=""><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.826310802068!2d29.015400220440505!3d41.05704798282876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab5d70267668b%3A0x882503c62c07c891!2sDOME%2BPARTNERS!5e1!3m2!1sen!2s!4v1701929047218!5m2!1sen!2s" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></a>
+            <a id="map" href="#"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.826310802068!2d29.015400220440505!3d41.05704798282876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab5d70267668b%3A0x882503c62c07c891!2sDOME%2BPARTNERS!5e1!3m2!1sen!2s!4v1701929047218!5m2!1sen!2s" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></a>
         </div>
     </div>
     <%- include('partials/forter.ejs', {socialdatas:socialdatas, contactdatas:contact})-%>
 </body>
+<script src="/script/script.js"></script>
 </html>
