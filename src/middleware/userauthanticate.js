@@ -4,7 +4,11 @@ const userschema = require("../moduls/userschema");
 
 const authanticate = async (req, res, next) => {
     try {
+        // const token = req.cookies?.digitaloasis || req.cookies("Authorization")?.replace("Bearer ","");
         const token = req.cookies.digitaloasis;
+        if (!token) {
+            res.status(401).send("You are Unauthorized!");
+        }
         // console.log("This is Cookie Token",token);
         const tokenvarify = JsonWebToken.verify(token, process.env.ADMIN_AUTH_TOKEN);
         // console.log("varifid token: ", tokenvarify);
@@ -22,6 +26,9 @@ const authanticate = async (req, res, next) => {
 const userauth = async (req, res, next) => {
     try {
         const usertoken = req.cookies.digital_oasis;
+        if (!usertoken) {
+            res.status(401).send("You are Unauthorized!");
+        }
         // console.log("Cookie from User Authantication: ", cokie)
         const userverify = JsonWebToken.verify(usertoken, process.env.USER_AUTH_TOKEN);
         const user = await userschema.findOne({ _id: userverify._id });

@@ -317,7 +317,7 @@ cursor: pointer;
         border-radius: 10px;
     }
     .blogtitle{
-        font-size: 1.2em;
+        font-size: 1em;
     }
     .blogdiscription{
         font-size: 14px;
@@ -379,10 +379,10 @@ cursor: pointer;
 }
 @media (max-width: 460px) {
     .blog{
-        width: 50vw;
+        width: 70vw;
     }
     .blogimg{
-        width: 45vw;
+        width: 65vw;
         height: 18vh;
     }
 }
