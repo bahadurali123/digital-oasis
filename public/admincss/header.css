@@ -43,6 +43,7 @@ header #header-fold-btn div{
         display: flex;
         justify-content: space-around;
         background-color: none;
+        z-index: 100;
     }
     header nav{
         width: 100%;
