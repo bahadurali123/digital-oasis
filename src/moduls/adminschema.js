@@ -47,8 +47,8 @@ adminschema.methods.genAuthToken = async function () {
         console.log(yourtoken);
         return yourtoken;
     } catch (error) {
-        res.send(`someone Error: ${error}`);
         console.log(`someone Error: ${error}`);
+        res.send(`someone Error: ${error}`);
     }
 }
 // set models of schemas

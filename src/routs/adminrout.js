@@ -137,12 +137,12 @@ adminrouts.post("/login", async (req, res) => {
                 httpOnly: true, // its meaning dont remove cookie your user it self. just developer able to remove it.
                 secure: true,
             });
+            res.redirect("/admin");
         } else {
             console.log("Incorrent pass");
             res.render("login");
         }
         // console.log("Get Email is correct: ", gemail);
-        res.redirect("/admin");
     } catch (error) {
         res.status(404).send(error);
         // res.render("login");
