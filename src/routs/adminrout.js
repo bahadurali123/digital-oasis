@@ -101,8 +101,8 @@ adminrouts.post("/register", async (req, res) => {
                 secure: true,
             });
             // console.log("This is token: ", token)
-            const saveadmin = await admins.save();
-            console.log(saveadmin);
+            // const saveadmin = await admins.save();
+            // console.log(saveadmin);
             // console.log(`Name: ${name} Email: ${email} Phone: ${phone} Pass: ${password} Add: ${address} Gend: ${gender}`)
             // res.send("Register successfuly!");
             res.redirect("/login");

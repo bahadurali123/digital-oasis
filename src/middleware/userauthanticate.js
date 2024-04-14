@@ -6,8 +6,11 @@ const authanticate = async (req, res, next) => {
     try {
         // const token = req.cookies?.digitaloasis || req.cookies("Authorization")?.replace("Bearer ","");
         const token = req.cookies.digitaloasis;
-        console.log("This is Cookie Token",token);
-        if (token) {
+        // console.log("This is Cookie Token",token);
+        if (!token) {
+            res.status(401).send("You are Unauthorized!");
+
+        }
             const tokenvarify = JsonWebToken.verify(token, process.env.ADMIN_AUTH_TOKEN);
             // console.log("varifid token: ", tokenvarify);
             const findtoken = await admin.findOne({ _id: tokenvarify._id });
@@ -17,9 +20,6 @@ const authanticate = async (req, res, next) => {
             req.user = findtoken;
             // console.log(req.user);
             next();
-        } else{
-            res.status(401).send("You are Unauthorized!");
-        }
     } catch (error) {
         res.status(401).send(error);
     }
