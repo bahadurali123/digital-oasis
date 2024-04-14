@@ -45,6 +45,7 @@ form{
     display: grid;
     grid-template-columns: 1fr 2fr;
     align-items: center;
+    text-transform: capitalize;
 }
 .inputs{
     padding: 5px;
@@ -69,7 +70,7 @@ form{
     cursor: pointer;
 }
 #loginmessage{
- padding: 2vw;   
+    padding: 2vw;   
 }
 @media (max-width: 900px) {
     .form{
@@ -79,5 +80,16 @@ form{
 @media (max-width: 600px) {
     .form{
         width: 80vw;
+    }
+    #loginmessage{
+        font-size: 14px;
+    }
+}
+@media (max-width: 350px) {
+    .items{
+        grid-template-columns: 1fr;
+    }
+    #loginmessage{
+        font-size: 12px;
     }
 }

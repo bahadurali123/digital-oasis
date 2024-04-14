@@ -84,7 +84,6 @@ hr {
 
 #valuessection {
     width: 90%;
-    /* height: auto; */
     padding: 5vh 0;
     box-shadow: 5px 5px 10px 10px #e4e2e2;
 }
@@ -98,13 +97,9 @@ hr {
 }
 
 #valuesitemssection {
-    /* display: flex;
-    justify-content: space-evenly;
-    align-items: center; */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2vh;
-    /* grid-template-rows: repeat(3, 1fr); */
 }
 
 .valuesitems {
@@ -238,16 +233,8 @@ hr {
     #heading {
         font-size: 1.5rem;
     }
-
-    /* .teamitems {
-        width: 50vw;
-    } */
-
     .valuesitems {
         width: 60vw;
-    }
-    .teamabout {
-        font-size: 12px;
     }
 }
 @media (max-width: 500px) {

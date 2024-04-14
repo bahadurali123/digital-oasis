@@ -6,19 +6,20 @@ const authanticate = async (req, res, next) => {
     try {
         // const token = req.cookies?.digitaloasis || req.cookies("Authorization")?.replace("Bearer ","");
         const token = req.cookies.digitaloasis;
-        if (!token) {
+        console.log("This is Cookie Token",token);
+        if (token) {
+            const tokenvarify = JsonWebToken.verify(token, process.env.ADMIN_AUTH_TOKEN);
+            // console.log("varifid token: ", tokenvarify);
+            const findtoken = await admin.findOne({ _id: tokenvarify._id });
+            // console.log("varifid token id: ", findtoken);
+    
+            req.token = token;
+            req.user = findtoken;
+            // console.log(req.user);
+            next();
+        } else{
             res.status(401).send("You are Unauthorized!");
         }
-        // console.log("This is Cookie Token",token);
-        const tokenvarify = JsonWebToken.verify(token, process.env.ADMIN_AUTH_TOKEN);
-        // console.log("varifid token: ", tokenvarify);
-        const findtoken = await admin.findOne({ _id: tokenvarify._id });
-        // console.log("varifid token id: ", findtoken);
-
-        req.token = token;
-        req.user = findtoken;
-        // console.log(req.user);
-        next();
     } catch (error) {
         res.status(401).send(error);
     }
