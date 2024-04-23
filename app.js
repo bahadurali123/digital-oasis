@@ -62,39 +62,67 @@ app.get("/register", routs, adminrout); // ok
 app.post("/register", routs, adminrout); // test true row JSON
 app.get("/login", routs, adminrout); // ok
 app.post("/login", routs, adminrout); // test true row JSON
-app.get("/logout", authanticate, routs, adminrout); // ok
-app.get("/admin", authanticate, adminrout); // ok
-app.get("/admin/team", authanticate, adminrout); // ok
-app.post("/admin/team", authanticate, adminrout); // test true row JSON
-app.get("/admin/team/delete/:id", authanticate, adminrout); // ok
-app.get("/admin/team/edit/:id", authanticate, adminrout); // ok
-app.post("/admin/team/edit/:id", authanticate, adminrout); // test true row JSON
+// app.get("/logout", authanticate, routs, adminrout); // ok
+// app.get("/admin", authanticate, adminrout); // ok
+// app.get("/admin/team", authanticate, adminrout); // ok
+// app.post("/admin/team", authanticate, adminrout); // test true row JSON
+// app.get("/admin/team/delete/:id", authanticate, adminrout); // ok
+// app.get("/admin/team/edit/:id", authanticate, adminrout); // ok
+// app.post("/admin/team/edit/:id", authanticate, adminrout); // test true row JSON
+app.get("/logout", routs, adminrout); // ok
+app.get("/admin", adminrout); // ok
+app.get("/admin/team", adminrout); // ok
+app.post("/admin/team", adminrout); // test true row JSON
+app.get("/admin/team/delete/:id", adminrout); // ok
+app.get("/admin/team/edit/:id", adminrout); // ok
+app.post("/admin/team/edit/:id", adminrout); // test true row JSON
 
-app.get("/admin/social", authanticate, adminrout); // ok
-app.post("/admin/social", authanticate, adminrout); // test true row JSON
-app.get("/admin/social/delete/:id", authanticate, adminrout); // ok
-app.get("/admin/social/edit/:id", authanticate, adminrout); // ok
-app.post("/admin/social/edit/:id", authanticate, adminrout); // test true row JSON
+// app.get("/admin/social", authanticate, adminrout); // ok
+// app.post("/admin/social", authanticate, adminrout); // test true row JSON
+// app.get("/admin/social/delete/:id", authanticate, adminrout); // ok
+// app.get("/admin/social/edit/:id", authanticate, adminrout); // ok
+// app.post("/admin/social/edit/:id", authanticate, adminrout); // test true row JSON
+app.get("/admin/social", adminrout); // ok
+app.post("/admin/social", adminrout); // test true row JSON
+app.get("/admin/social/delete/:id", adminrout); // ok
+app.get("/admin/social/edit/:id", adminrout); // ok
+app.post("/admin/social/edit/:id", adminrout); // test true row JSON
 
-app.get("/admin/contact", authanticate, adminrout); // ok
-app.post("/admin/contact", authanticate, adminrout); // test true row JSON
-app.get("/admin/contact/delete/:id", authanticate, adminrout); // ok
-app.get("/admin/contact/edit/:id", authanticate, adminrout); // ok
-app.post("/admin/contact/edit/:id", authanticate, adminrout); // test true row JSON
+// app.get("/admin/contact", authanticate, adminrout); // ok
+// app.post("/admin/contact", authanticate, adminrout); // test true row JSON
+// app.get("/admin/contact/delete/:id", authanticate, adminrout); // ok
+// app.get("/admin/contact/edit/:id", authanticate, adminrout); // ok
+// app.post("/admin/contact/edit/:id", authanticate, adminrout); // test true row JSON
+app.get("/admin/contact", adminrout); // ok
+app.post("/admin/contact", adminrout); // test true row JSON
+app.get("/admin/contact/delete/:id", adminrout); // ok
+app.get("/admin/contact/edit/:id", adminrout); // ok
+app.post("/admin/contact/edit/:id", adminrout); // test true row JSON
 
-app.get("/admin/adminblog", authanticate, adminrout); // ok
-app.post("/admin/adminblog", authanticate, adminrout); // test true row JSON
-app.get("/admin/blog/delete/:id", authanticate, adminrout); // ok
-app.get("/admin/blog/edit/:id", authanticate, adminrout); // ok
-app.post("/admin/blog/edit/:id", authanticate, adminrout); // test true row JSON
+// app.get("/admin/adminblog", authanticate, adminrout); // ok
+// app.post("/admin/adminblog", authanticate, adminrout); // test true row JSON
+// app.get("/admin/blog/delete/:id", authanticate, adminrout); // ok
+// app.get("/admin/blog/edit/:id", authanticate, adminrout); // ok
+// app.post("/admin/blog/edit/:id", authanticate, adminrout); // test true row JSON
+app.get("/admin/adminblog", adminrout); // ok
+app.post("/admin/adminblog", adminrout); // test true row JSON
+app.get("/admin/blog/delete/:id", adminrout); // ok
+app.get("/admin/blog/edit/:id", adminrout); // ok
+app.post("/admin/blog/edit/:id", adminrout); // test true row JSON
 
-app.get("/admin/address", authanticate, adminrout); // ok
-app.post("/admin/address", authanticate, adminrout); // test true row JSON
+// app.get("/admin/address", authanticate, adminrout); // ok
+// app.post("/admin/address", authanticate, adminrout); // test true row JSON
+app.get("/admin/address", adminrout); // ok
+app.post("/admin/address", adminrout); // test true row JSON
 
-app.get("/admin/comments", authanticate, adminrout); // ok
-app.get("/admin/users", authanticate, adminrout); // ok
-app.get("/admin/messages", authanticate, adminrout); // ok
-app.get("/admin/likes", authanticate, adminrout); // ok
+// app.get("/admin/comments", authanticate, adminrout); // ok
+// app.get("/admin/users", authanticate, adminrout); // ok
+// app.get("/admin/messages", authanticate, adminrout); // ok
+// app.get("/admin/likes", authanticate, adminrout); // ok
+app.get("/admin/comments", adminrout); // ok
+app.get("/admin/users", adminrout); // ok
+app.get("/admin/messages", adminrout); // ok
+app.get("/admin/likes", adminrout); // ok
 
 app.listen(port, () => {
   console.log(`Server listen at port: ${port}`);
